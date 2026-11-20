@@ -27,7 +27,7 @@ def login():
             return render_template('login.html'),401
         user.failures=0; user.locked_until=None
         audit(g.db,user,'Login'); g.db.commit()
-        theme=session.get('theme','escuro'); session.clear()
+        theme=session.get('theme','claro'); session.clear()
         session.update(uid=user.id,version=user.version,theme=theme)
         return redirect(url_for('reports.dashboard'))
     return render_template('login.html')

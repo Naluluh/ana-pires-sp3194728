@@ -47,7 +47,7 @@ def login(client,email='admin@example.test'):
 def test_pages_and_permissions(client):
     assert client.get('/products').status_code==302
     login(client)
-    for path in ['/','/products','/stock','/purchases','/masters','/users','/cash','/pos','/sales','/finance','/audit','/account','/css/lavanda.css','/css/tropical.css','/css/claro.css','/css/escuro.css','/css/violeta.css','/js/app.js']:
+    for path in ['/','/products','/stock','/purchases','/masters','/users','/cash','/pos','/sales','/finance','/audit','/account','/css/violeta.css','/css/claro.css','/css/escuro.css','/js/app.js']:
         r=client.get(path); assert r.status_code==200,(path,r.data[:500])
     post(client,'/logout',{},'/')
     login(client,'op@example.test')

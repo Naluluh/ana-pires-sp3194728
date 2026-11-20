@@ -60,7 +60,7 @@ def create_app(overrides=None):
     @app.context_processor
     def context():
         return dict(current_user=getattr(g,'user',None), store_name=app.config['STORE_NAME'],
-            theme=session.get('theme','lavanda'), payment_names={'cash':'Dinheiro','debit':'Débito','credit':'Crédito','pix':'Pix'})
+            theme=session.get('theme','claro'), payment_names={'cash':'Dinheiro','debit':'Débito','credit':'Crédito','pix':'Pix'})
     @app.route('/assets/<path:filename>')
     def local_assets(filename):
         return send_from_directory(ROOT/'public', filename)
